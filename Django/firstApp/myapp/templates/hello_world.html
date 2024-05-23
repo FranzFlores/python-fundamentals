@@ -1,0 +1,40 @@
+{% extends 'layout.html'%}
+
+
+{% block title %} Página de Inicio {% endblock %}
+
+{% block content %}
+<h2 class="title">Hola Mundo con Django</h2>
+
+<hr/>
+
+{% comment %} Filtros en Django {% endcomment %}
+{% comment %} 
+    cut => Quita el valor que se le pase de la cadena 
+    default => Si el valor no existe, devuelve el valor que se le pase.
+    first => Devuelve el primer valor un arreglo.
+    last => Devuelve el último valor un arreglo.
+    join => Unir los valores de un arreglo con una cadena.
+    length => Devuelve la longitud de una cadena.
+    lower => Convierte a minúsculas una cadena.
+    upper => Convierte a mayúsculas una cadena.
+    random => Devuelve un valor aleatorio.
+    striptags => Quita los tags HTML de una cadena.
+    wordcount => Cuenta las palabras de una cadena.
+{% endcomment %}
+
+<p>{{"Creado por Franz Flores" | cut:" " }}</p>
+<p>{{ text | default:"Texto por defecto" }}</p>
+<p>{{ list | first }}</p>
+<p>{{ list | last }}</p>
+<p>{{ list | join:', ' }}</p>
+<p>{{ list | length }}</p>
+<p>{{ "Texto de Prueba" | lower }}</p>
+<p>{{ "Texto de Prueba" | upper }}</p>
+<p>{{ list | random }}</p>
+<p>{{ "<h1>Texto<h1><strong>Pruebas</strong>" | striptags | wordcount }}</p>
+
+
+
+
+{% endblock %}

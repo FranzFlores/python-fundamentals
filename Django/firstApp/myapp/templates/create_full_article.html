@@ -1,0 +1,23 @@
+{% extends 'layout.html'%}
+
+{% block title %} Formulario de Artículo {% endblock %}
+
+{% block content %}
+<h1 class="title">Formularios en Django</h1>
+
+{% if form_article.errors %}
+   <strong class="danger">Hay errores en el formulario</strong>
+{% endif %}
+
+<form action="" method="POST" class="form-article">
+
+    {% comment %} Para realizar el envío por POST, se debe agregar el siguiente código: {% endcomment %}
+    {% csrf_token %}
+
+
+    {{ form_article }}
+
+    <input type="submit" value="Guardar" />
+</form>
+
+{% endblock %}

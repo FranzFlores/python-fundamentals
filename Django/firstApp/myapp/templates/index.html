@@ -1,0 +1,45 @@
+{% extends 'layout.html'%}
+
+{% block title %} Página de Inicio - {{title}} {% endblock %}
+
+{% block content %}
+{{ block.super}}
+
+{% include 'actual_date.html' with var="Variable"  %}
+<h1 class="title">Inicio</h1>
+<p>
+    Bienvenido a la página de inicio de la aplicación.
+</p>
+
+<p>
+    Nombre que se pasa por variable {{name}} y reutilizada {{title}}
+</p>
+
+{% comment %} condicioneales  {% endcomment %}
+{% if variable and nombre == 'Franz Flores' %}
+    <p>{{variable}}</p>
+{% else %}
+    <strong>La variable no existe</strong>
+{% endif %}
+
+{% comment %} Bucles {% endcomment %}
+<hr>
+<h3>Listado de Lenguajes de Programación</h3>
+<ul>
+    {% for language in languages %}
+        <li>
+            {{language}} 
+        </li> 
+        {% empty %}
+         <p>No Hay Lenguajes que mostrar</p>
+    {% endfor %}
+</ul>
+{% endblock %}
+{% comment %} Comentario en Django {% endcomment %}
+{% comment %} 
+    forloop.counter -> contador de iteraciones
+    forloop.first -> es la primera iteracion
+    forloop.last -> es la ultima iteracion 
+    forloop.counter0 -> contador de iteraciones desde 0
+    forloop.revcounter -> contador de iteraciones desde el final
+{% endcomment %}

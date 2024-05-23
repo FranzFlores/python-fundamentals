@@ -1,0 +1,38 @@
+{% extends 'layout.html'%}
+
+
+{% block title %} Página de Articulos {% endblock %}
+
+{% block content %}
+<h2 class="title">Artículos Registrados</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="message">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+
+{% for article in articles %}
+    <article class="article-item">
+        {% if article.image.url|length >= 0 and article.image != 'null' %}
+         <div class="image">
+            <img src="{{ article.image.url }}" />
+         </div>
+        {% endif %}
+
+        <div class="data">
+            <h2>{{article.title}}</h2>
+            <span class="date">{{article.created_at}}</span>
+            <p>
+                {{article.content}}
+                <a href="{% url 'delete_article' id=article.id%}" class="btn btn-delete">Eliminar</a>
+            </p>
+            
+        </div>  
+        <div class="clearfix"></div>
+    </article>
+{% endfor %}
+
+
+{% endblock %}

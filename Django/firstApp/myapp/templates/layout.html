@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio Web Con Django | {% block title %} {% endblock %} </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />
+            <h1> Sitio Web con Django </h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'first_view' %}">Hello World</a></li>
+            <li><a href="{% url 'get_articles' %}">Artículos</a></li>
+            <li><a href="{% url 'page' %}">Página de pruebas</a></li>
+            <li><a href="{% url 'create_article_form' %}">Crear Artículo</a></li>
+            <li><a href="{% url 'create_full_article' %}">Crear Artículo con Clases</a></li>
+            <li><a href="{% url 'contact' 'Franz' 'Flores' %}">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="bar">
+        <span class="left-corner"></span>
+        <span class="filled-bar"></span>
+        <span class="right-corner"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <!-- Codigo del template -->
+            <strong>Contenido del bloque original</strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>Curso de Python &copy; Franz Flores - {% now "d/m/Y" %}</footer>
+
+</body>
+
+</html>

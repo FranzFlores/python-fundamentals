@@ -1,0 +1,35 @@
+// Crear un proyectro de Django
+django-admin startproject <nombre-proyecto>
+
+// Crear una BBDD con las funcionalidades que trae django  y ejecutar el proyecto. En caso de dar error al ejecutar
+// el comando se debe eliminar la línea 
+// #!/usr/bin/env python
+// del fichero de manage.py
+// En el directorio del proyecto: 
+py manage.py migrate 
+
+//Comando para ejecutar el proyecto de django
+py manage.py runserver
+
+//Apps -> Paquete dentro del proyecto de Django. Es similar a los componentes en Angular.
+py manage.py startapp <nombre-app>
+
+// MVC = Modelo Vista Controlador
+// MVT = Modelo Vista(Controlador) Template(Vista)
+
+//Crear migraciones y crear los modelos en bbdd
+py manage.py makemigrations
+py manage.py sqlmigrate <nombre-app> <numero migracion -> 0001>
+py manage.py migrate
+
+//Actualizar las tablas de la BBDD
+py manage.py makemigrations
+
+//Crear un superusuario. Se debe ingresar un nombre de usuario, correo y contraseña
+py manage.py createsuperuser
+
+//Clase Meta -> Permite poner como funciona internamente a las entidades
+
+// -------------------------------------------------------------------
+//Crear Proyecto en Django
+django-admin startproject <Nombre-proyecto>

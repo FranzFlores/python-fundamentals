@@ -1,0 +1,10 @@
+{% extends 'layout.html'%}
+
+{% block title %} Página de Prueba {% endblock %}
+
+{% block content %}
+<h1 class="title">Página de la aplicación</h1>
+<p>Creado por Franz Andrés Flores</p>
+{% load filters %}
+{{"Franz Flores" | greeting | safe }}
+{% endblock %}
